@@ -133,7 +133,7 @@ With, in yout template
 
 A complete example can be found here: https://github.com/Holoon/MjmlToHtml/tree/main/src/Holoon.MjmlToMail.Example
 	
-## Quick Links (outils utilisés)
+## Quick Links
 	
 - scriban: https://github.com/scriban/scriban
 - I18Next.Net: https://github.com/DarkLiKally/I18Next.Net
