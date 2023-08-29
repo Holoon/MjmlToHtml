@@ -36,8 +36,6 @@
 				</mj-column>
 			</mj-section>
 
-			<mj-include path="./templates/@shared/styles.css" type="css" css-inline="inline" />
-
 		</mj-wrapper>
 		<mj-wrapper full-width="full-width">
 			<mj-section>
