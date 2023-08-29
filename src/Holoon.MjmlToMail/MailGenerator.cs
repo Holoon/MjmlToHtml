@@ -21,12 +21,57 @@ public class MailGenerator
     }
     public Options Options { get; set; }
 
-    public object GetMail<T>(string templateFilename, T data, string language, Format format = Format.Mjml)
+    public string? GetMail<T>(string templateFilename, T data, string language, Format format = Format.Mjml)
     {
-        var templateText = File.ReadAllText(templateFilename); 
-        var template = Template.Parse(templateText, 
+        var templateText = File.ReadAllText(templateFilename);
+
+        var template = GetTemplate(templateFilename, templateText);
+        var context = GetContext(data, language);
+
+        var result = template.Render(context);
+
+        result = RenderMjml(format, result);
+        return result;
+    }
+    public async Task<string?> GetMailAsync<T>(string templateFilename, T data, string language, Format format, CancellationToken cancellationToken)
+    {
+        var templateText = await File.ReadAllTextAsync(templateFilename, cancellationToken);
+
+        var template = GetTemplate(templateFilename, templateText);
+        var context = GetContext(data, language);
+
+        var result = await template.RenderAsync(context);
+
+        result = RenderMjml(format, result);
+        return result;
+    }
+
+    private string RenderMjml(Format format, string result)
+    {
+        if (format == Format.Mjml)
+        {
+            (result, var errors) = _MjmlRenderer.Render(result);
+
+            if (errors != null && errors.Count > 0)
+                Options.OnMjmlErrors?.Invoke(errors);
+        }
+        return result;
+    }
+    private Template GetTemplate(string templateFilename, string templateText)
+    {
+        var template = Template.Parse(templateText,
             sourceFilePath: templateFilename); // NOTE: This parameter is useful only for debug messages.
 
+        if (template.HasErrors)
+        {
+            Options.OnScribanErrors?.Invoke(template.Messages
+                .Where(m => m.Type == Scriban.Parsing.ParserMessageType.Error));
+        }
+
+        return template;
+    }
+    private TemplateContext GetContext<T>(T data, string language)
+    {
         var context = new TemplateContext();
         var scriptObject1 = new ScriptObject();
 
@@ -45,16 +90,6 @@ public class MailGenerator
 
         scriptObject1.Import(data);
         context.PushGlobal(scriptObject1);
-
-        var result = template.Render(context);
-
-        if (format == Format.Mjml)
-        {
-            object? error = null;
-            (result, error) = _MjmlRenderer.Render(result);
-        }
-        // TODO : Log
-
-        return result;
+        return context;
     }
 }

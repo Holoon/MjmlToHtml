@@ -1,4 +1,7 @@
-﻿namespace Holoon.MjmlToHtml;
+﻿using Mjml.Net;
+using Scriban.Parsing;
+
+namespace Holoon.MjmlToHtml;
 public class Options
 {
     public Options()
@@ -7,4 +10,6 @@ public class Options
     }
     public string? I18NBasePath { get; set; }
     public FunctionCollection TemplateCustomFunctions { get; }
+    public Action<IEnumerable<LogMessage>>? OnScribanErrors { get; set; }
+    public Action<IEnumerable<ValidationError>>? OnMjmlErrors { get; set; }
 }

@@ -13,7 +13,9 @@ static Model GetData() => new()
 
 var options = new Options
 {
-    I18NBasePath = @"locales"
+    I18NBasePath = @"locales",
+    OnScribanErrors = (errors) => errors.ToList().ForEach(error => Console.WriteLine(error.ToString())),
+    OnMjmlErrors = (errors) => errors.ToList().ForEach(error => Console.WriteLine(error.ToString()))
 };
 options.TemplateCustomFunctions.Add("role", (Func<Role?, string>)FormatHtml);
 
