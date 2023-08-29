@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Holoon.MjmlToMail", "Holoon.MjmlToMail\Holoon.MjmlToMail.csproj", "{116A0A44-04EA-4790-8C97-C81042F9B802}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Holoon.MjmlToMail.Example", "Holoon.MjmlToMail.Example\Holoon.MjmlToMail.Example.csproj", "{0EFC2CB1-ED54-4E57-A330-69769C00D2A8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{116A0A44-04EA-4790-8C97-C81042F9B802}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{116A0A44-04EA-4790-8C97-C81042F9B802}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{116A0A44-04EA-4790-8C97-C81042F9B802}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{116A0A44-04EA-4790-8C97-C81042F9B802}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EFC2CB1-ED54-4E57-A330-69769C00D2A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EFC2CB1-ED54-4E57-A330-69769C00D2A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EFC2CB1-ED54-4E57-A330-69769C00D2A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EFC2CB1-ED54-4E57-A330-69769C00D2A8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E13135FE-D17A-4A57-9AD3-C4FA64F92BCE}
+	EndGlobalSection
+EndGlobal

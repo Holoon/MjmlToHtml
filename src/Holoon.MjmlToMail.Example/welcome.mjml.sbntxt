@@ -1,0 +1,61 @@
+<mjml>
+	<mj-head>
+		<mj-title>
+			{{ t 'welcome:header-title' }}
+		</mj-title>
+		<mj-preview>
+			{{ t 'welcome:header-subtitle' }}
+		</mj-preview>
+	</mj-head>
+	<mj-body background-color="#fff" width="600px">
+		<mj-wrapper padding-top="0" padding-bottom="0px" css-class="body-section">
+			<mj-section padding-left="15px" padding-right="15px">
+				<mj-column width="100%">
+					<mj-text color="#212b35" font-weight="bold" font-size="20px">
+						{{ t 'commons:hello' }} {{ username }},
+					</mj-text>
+					<mj-text color="#637381" font-size="16px">
+						{{ t 'welcome:account-created' }}
+					</mj-text>
+					<mj-text color="#637381" font-size="16px">
+						{{ t 'commons:your-login-is' }} <b class="highlight type-member">
+							{{ username }}
+						</b>
+					</mj-text>
+					<mj-text color="#637381" font-size="16px">
+						{{ role test_object }}
+					</mj-text>
+
+					<mj-button css-class="is-primary btn-open" align="center" width="200px" background-color="#003BC7" color="#ffffff" font-size="14px" font-weight="bold" border-radius="6px" href="{{ link }}">
+						{{ t 'welcome:button-initialize-account' }}
+					</mj-button>
+					<mj-text color="#637381" font-size="16px" padding-bottom="30px">
+						{{ t 'commons:or-link' }} <a class="text-link" href="{{ link }}">{{ link }}</a>.
+					</mj-text>
+
+				</mj-column>
+			</mj-section>
+
+			<mj-include path="./templates/@shared/styles.css" type="css" css-inline="inline" />
+
+		</mj-wrapper>
+		<mj-wrapper full-width="full-width">
+			<mj-section>
+				<mj-column width="100%" padding="0px">
+					<mj-text color="#445566" font-size="11px" align="center" line-height="16px">{{ t 'commons:email-sent-automatically' }}</mj-text>
+					<mj-text color="#445566" font-size="11px" align="center" line-height="16px">{{ t 'commons:explain-received' }}</mj-text>
+					<mj-text color="#445566" font-size="11px" align="center" line-height="16px">&copy; {{ t 'commons:copyright' }}</mj-text>
+				</mj-column>
+			</mj-section>
+			<mj-section padding-top="0">
+				<mj-group>
+					<mj-column width="100%" padding-right="0px">
+						<mj-text color="#445566" font-size="11px" align="center" line-height="16px" font-weight="bold">
+							<a class="footer-link" href="https://your-exemple-domain.com">{{ t 'commons:privacy-link' }}</a>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;
+						</mj-text>
+					</mj-column>
+				</mj-group>
+			</mj-section>
+		</mj-wrapper>
+	</mj-body>
+</mjml>
