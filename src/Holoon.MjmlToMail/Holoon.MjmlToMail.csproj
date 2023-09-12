@@ -13,7 +13,7 @@
 	<RepositoryUrl>https://github.com/Holoon/MjmlToHtml</RepositoryUrl>
 	<RepositoryType>GitHub</RepositoryType>
 	<PackageTags>MJML Template Mail scriban I18Next.Net mjml-net C# .NET</PackageTags>
-	<Version>1.1.0</Version>
+	<Version>1.2.0</Version>
 	  
   </PropertyGroup>
 

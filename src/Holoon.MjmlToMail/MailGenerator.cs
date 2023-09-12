@@ -90,6 +90,10 @@ public class MailGenerator
 
         scriptObject1.Import(data);
         context.PushGlobal(scriptObject1);
+
+        if (Options.TemplateLoader != null)
+            context.TemplateLoader = Options.TemplateLoader;
+
         return context;
     }
 }

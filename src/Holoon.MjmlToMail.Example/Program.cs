@@ -15,7 +15,8 @@ var options = new Options
 {
     I18NBasePath = @"locales",
     OnScribanErrors = (errors) => errors.ToList().ForEach(error => Console.WriteLine(error.ToString())),
-    OnMjmlErrors = (errors) => errors.ToList().ForEach(error => Console.WriteLine(error.ToString()))
+    OnMjmlErrors = (errors) => errors.ToList().ForEach(error => Console.WriteLine(error.ToString())),
+    TemplateLoader = new DefaultTemplateLoader()
 };
 options.TemplateCustomFunctions.Add("role", (Func<Role?, string>)FormatHtml);
 

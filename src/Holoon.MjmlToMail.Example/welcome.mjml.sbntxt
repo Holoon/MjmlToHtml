@@ -32,28 +32,9 @@
 					<mj-text color="#637381" font-size="16px" padding-bottom="30px">
 						{{ t 'commons:or-link' }} <a class="text-link" href="{{ link }}">{{ link }}</a>.
 					</mj-text>
-
 				</mj-column>
 			</mj-section>
-
 		</mj-wrapper>
-		<mj-wrapper full-width="full-width">
-			<mj-section>
-				<mj-column width="100%" padding="0px">
-					<mj-text color="#445566" font-size="11px" align="center" line-height="16px">{{ t 'commons:email-sent-automatically' }}</mj-text>
-					<mj-text color="#445566" font-size="11px" align="center" line-height="16px">{{ t 'commons:explain-received' }}</mj-text>
-					<mj-text color="#445566" font-size="11px" align="center" line-height="16px">&copy; {{ t 'commons:copyright' }}</mj-text>
-				</mj-column>
-			</mj-section>
-			<mj-section padding-top="0">
-				<mj-group>
-					<mj-column width="100%" padding-right="0px">
-						<mj-text color="#445566" font-size="11px" align="center" line-height="16px" font-weight="bold">
-							<a class="footer-link" href="https://your-exemple-domain.com">{{ t 'commons:privacy-link' }}</a>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;
-						</mj-text>
-					</mj-column>
-				</mj-group>
-			</mj-section>
-		</mj-wrapper>
+		{{ include 'templates/footer.sbntxt' }}
 	</mj-body>
 </mjml>

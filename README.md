@@ -132,7 +132,50 @@ With, in yout template
 ```
 
 A complete example can be found here: https://github.com/Holoon/MjmlToHtml/tree/main/src/Holoon.MjmlToMail.Example
-	
+
+### Using {{ include sub-template.sbntxt }}
+
+If your template contains sub-templates, in accordance with the Scriban documentation, you must provide a `TemplateLoader`.
+Example:
+
+```html
+// ...
+<mj-text>
+	{{ include 'templates/footer.sbntxt' }}
+</mj-text>
+// ...
+```
+
+```c#
+var options = new Options
+{
+    // ...
+    TemplateLoader = new DefaultTemplateLoader()
+};
+var generator = new MailGenerator(options);
+```
+
+Or, for example:
+
+```html
+// ...
+<mj-text>
+	{{ include 'footer.sbntxt' }}
+</mj-text>
+// ...
+```
+
+```c#
+var options = new Options
+{
+    // ...
+    TemplateLoader = new DefaultTemplateLoader("templates")
+};
+var generator = new MailGenerator(options);
+```
+
+Or, of course, you can provide your own implementation of `ITemplateLoader`. 
+
 ## Quick Links
 	
 - scriban: https://github.com/scriban/scriban

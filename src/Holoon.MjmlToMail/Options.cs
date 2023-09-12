@@ -1,5 +1,6 @@
 ﻿using Mjml.Net;
 using Scriban.Parsing;
+using Scriban.Runtime;
 
 namespace Holoon.MjmlToHtml;
 public class Options
@@ -12,4 +13,5 @@ public class Options
     public FunctionCollection TemplateCustomFunctions { get; }
     public Action<IEnumerable<LogMessage>>? OnScribanErrors { get; set; }
     public Action<IEnumerable<ValidationError>>? OnMjmlErrors { get; set; }
+    public ITemplateLoader? TemplateLoader { get; set; }
 }

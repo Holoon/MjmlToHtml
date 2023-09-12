@@ -18,6 +18,9 @@
     <None Update="locales\en\welcome.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="templates\footer.sbntxt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="welcome.mjml.sbntxt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
