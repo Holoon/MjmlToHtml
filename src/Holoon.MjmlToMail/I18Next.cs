@@ -17,9 +17,8 @@ internal class I18Next
         };
     }
     private readonly ITranslationBackend _Backend;
-    public string Translate(string? key, string? language)
+    public string Translate(string? key, string? language, object? args)
     {
-        _I18Next.Language = language;
-        return _I18Next.T(key);
+        return _I18Next.T(language, key, args);
     }
 }

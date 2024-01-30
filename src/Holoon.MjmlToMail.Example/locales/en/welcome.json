@@ -1,5 +1,5 @@
 {
-	"account-created": "Your account has just been created on your Example-Test-Project space. We invite you to log in to set your password.",
+	"account-created": "Your account has just been created on your {{ project_name }}. We invite you to log in to set your password.",
 	"button-initialize-account": "Sign In",
 	"header-subtitle": "Your account has just been created on Example-Test-Project",
 	"header-title": "Welcome",

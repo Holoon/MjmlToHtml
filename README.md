@@ -54,7 +54,7 @@ With:
 			<mj-section>
 				<mj-column>
 					<mj-text>
-						{{ t 'commons:hello' }} {{ username }},
+						{{ t 'commons:hello' this }},
 					</mj-text>
 					<mj-text>
 						{{ t 'commons:your-login-is' }} 
@@ -76,7 +76,7 @@ With:
 - locales\en\commons.json
 ```json
 {
-	"hello": "Hello",
+	"hello": "Hello {{ username }}",
 	"your-login-is": "Your login is:"
 }
 ```

@@ -15,7 +15,7 @@ public class MailGenerator
         var i18N = new I18Next(Options.I18NBasePath ?? String.Empty);
         _TemplateDefaultFunctions.Add<LanguageContext>(
             "t",
-            context => i18N.Translate((context?.TemplateArgument as string) ?? String.Empty, context?.Language));
+            context => i18N.Translate((context?.TemplateArgument as string) ?? String.Empty, context?.Language, context?.Args));
 
         _MjmlRenderer = new MjmlRenderer();
     }
@@ -79,8 +79,8 @@ public class MailGenerator
         {
             if (func.ArgumentType.IsAssignableTo(typeof(LanguageContext)))
             {
-                Func<object?, string?>? function = data => func.Function?.Invoke(new LanguageContext(data, language));
-                scriptObject1.Import(func.FunctionName, function);
+                string? translate(string key, object? args = null) => func.Function?.Invoke(new LanguageContext(key, language, args));
+                scriptObject1.Import(func.FunctionName, translate);
             }
             else
             {

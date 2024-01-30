@@ -15,7 +15,7 @@
 						{{ t 'commons:hello' }} {{ username }},
 					</mj-text>
 					<mj-text color="#637381" font-size="16px">
-						{{ t 'welcome:account-created' }}
+						{{ t 'welcome:account-created' this }}
 					</mj-text>
 					<mj-text color="#637381" font-size="16px">
 						{{ t 'commons:your-login-is' }} <b class="highlight type-member">

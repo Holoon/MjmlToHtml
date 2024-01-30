@@ -8,7 +8,8 @@ static Model GetData() => new()
 {
     Link = "https://github.com/Holoon/MjmlToHtml",
     Username = "Arthur Dent",
-    TestObject = new Role { MemberId = 42, MemberName = "Foo", RoleId = 1, RoleName = "Bar" }
+    TestObject = new Role { MemberId = 42, MemberName = "Foo", RoleId = 1, RoleName = "Bar" }, 
+    ProjectName = "Example-Test-Project"
 };
 
 var options = new Options
