@@ -135,7 +135,7 @@ A complete example can be found here: https://github.com/Holoon/MjmlToHtml/tree/
 
 ### Using {{ include sub-template.sbntxt }}
 
-If your template contains sub-templates, in accordance with the Scriban documentation, you must provide a `TemplateLoader`.
+If your template contains sub-templates, in accordance with the Scriban documentation, you must provide a `TemplateLoader`.  
 Example:
 
 ```html
