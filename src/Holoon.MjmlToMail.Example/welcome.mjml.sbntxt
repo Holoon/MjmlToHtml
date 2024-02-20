@@ -18,8 +18,14 @@
 						{{ t 'welcome:account-created' this }}
 					</mj-text>
 					<mj-text color="#637381" font-size="16px">
-						{{ t 'commons:your-login-is' }} <b class="highlight type-member">
-							{{ username }}
+						{{ t 'commons:your-login-is' }} 
+						<b class="highlight type-member">
+							Html-encoded (default): {{ username }}
+							Not encoded: {{ no_html_encode.username }}
+
+							    non-breaking space &nbsp;	&#160;
+								less than	&lt;	&#60;
+								greater than	&gt;	&#62;
 						</b>
 					</mj-text>
 					<mj-text color="#637381" font-size="16px">

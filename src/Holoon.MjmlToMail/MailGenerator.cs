@@ -1,6 +1,9 @@
 ﻿using Mjml.Net;
 using Scriban;
 using Scriban.Runtime;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Web;
 
 namespace Holoon.MjmlToHtml;
 public class MailGenerator
@@ -46,16 +49,18 @@ public class MailGenerator
         return result;
     }
 
-    private string RenderMjml(Format format, string result)
+    private string RenderMjml(Format format, string mjml)
     {
         if (format == Format.Mjml)
         {
-            (result, var errors) = _MjmlRenderer.Render(result);
+            (var result, var errors) = _MjmlRenderer.Render(mjml);
 
             if (errors != null && errors.Count > 0)
                 Options.OnMjmlErrors?.Invoke(errors);
+            else 
+                return result;
         }
-        return result;
+        return mjml;
     }
     private Template GetTemplate(string templateFilename, string templateText)
     {
@@ -88,12 +93,30 @@ public class MailGenerator
             }
         }
 
-        scriptObject1.Import(data);
+        scriptObject1.Import(HtmlEncode(data));
+        scriptObject1.Import(new { NoHtmlEncode = data });
         context.PushGlobal(scriptObject1);
 
         if (Options.TemplateLoader != null)
             context.TemplateLoader = Options.TemplateLoader;
 
         return context;
+    }
+    public object? HtmlEncode<T>(T data)
+    { 
+        if (data == null)
+            return null;
+
+        var options = new JsonSerializerOptions();
+        options.Converters.Add(new HtmlEncoder());
+        string jsonString = JsonSerializer.Serialize(data);
+        var copiedObject = JsonSerializer.Deserialize<T>(jsonString, options);
+
+        return copiedObject;
+    }
+    public class HtmlEncoder : JsonConverter<string>
+    {
+        public override string? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => HttpUtility.HtmlEncode(reader.GetString());
+        public override void Write(Utf8JsonWriter writer, string value, JsonSerializerOptions options) => throw new NotImplementedException(); 
     }
 }

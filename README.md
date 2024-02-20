@@ -23,7 +23,7 @@ var data = GetData();
 static Model GetData() => new()
 {
     Link = "https://github.com/Holoon/MjmlToHtml",
-    Username = "Arthur Dent"
+    Username = "Arthur<br/>Dent"
 };
 
 var options = new Options
@@ -59,7 +59,8 @@ With:
 					<mj-text>
 						{{ t 'commons:your-login-is' }} 
 						<b class="highlight type-member">
-							{{ username }}
+							Html-encoded (default): {{ username }}
+							Not encoded: {{ no_html_encode.username }}
 						</b>
 					</mj-text>
 					<mj-button href="{{ link }}">
